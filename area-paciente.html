@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<!-- Página da Área do Paciente - Conteúdo após autenticação -->
+<html lang="pt-BR">
+
+    <head>
+        <!-- Meta tags e configurações -->
+        <meta charset="UTF-8">
+        <title>Área do Paciente | Maria Dinoir Terapeuta</title>
+        <meta name = "description" content = "Gerencie suas consultas e compartilhe seus relatos"  >
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+
+    </head>
+
+    <!-- Corpo da página da área do paciente -->
+    <body class="patient-area-page">
+
+        <!-- Cabeçalho com logo, navegação e botões -->
+        <header>
+
+            <img src="./assets/logo.png" alt="Logo Maria Dinoir">
+            <h2>Maria Dinoir</h2>
+
+            <!-- Menu de navegação -->
+            <nav>
+                <a href="index.html">Início</a>
+                <a href="index.html#sobre">Sobre</a>
+                <a href="index.html#areas-atendimento">Áreas de Atendimento</a>
+                <a href="index.html#funcionamento">Como Funciona</a>
+                <a href="index.html#relatos">Relatos</a>
+            </nav>
+
+            <!-- Botões de ação -->
+            <button class="btn-entrar" onclick="window.location.href='login.html'">Sair</button>
+            <button class="btn-agendar" onclick="window.location.href='agendar-consulta.html'">Agendar Consulta</button>
+
+        </header>
+
+        <main>
+
+            <div class="patient-container">
+
+                <div class="patient-header">
+                    <h1>Área do Paciente</h1>
+                    <p>Olá, [Nome do Paciente]! Acompanhe suas consultas e compartilhe suas experiências</p>
+                </div>
+
+                <!-- Cards de Estatísticas -->
+                <div class="stats-container">
+
+                    <div class="stat-card primary">
+                        <div class="stat-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Próxima Consulta</h3>
+                            <p class="stat-date">12 de mar.</p>
+                            <p class="stat-time">15:00</p>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Total de Consultas</h3>
+                            <p class="stat-number">7</p>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Relatos Enviados</h3>
+                            <p class="stat-number">3</p>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Aguardando Relato</h3>
+                            <p class="stat-number">4</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Seção de Consultas -->
+                <div class="consultations-section">
+
+                    <div class="section-header">
+                        <h2>Minhas Consultas</h2>
+                    </div>
+
+                    <!-- Abas de filtros principais -->
+                    <div class="filter-tabs">
+                        <button class="filter-tab active" data-filter="proximas">
+                            <span>Próximas</span>
+                            <span class="filter-count">(3)</span>
+                        </button>
+                        <button class="filter-tab" data-filter="historico">
+                            <span>Histórico</span>
+                            <span class="filter-count">(7)</span>
+                        </button>
+                        <button class="filter-tab" data-filter="relatos">
+                            <span>Meus Relatos</span>
+                            <span class="filter-count">(3)</span>
+                        </button>
+                    </div>
+
+                    <!-- Filtro por tipo -->
+                    <div class="filter-tipo-section">
+                        <span class="filter-tipo-label">Filtrar por tipo:</span>
+                        <div class="filter-tipo-buttons">
+                            <button class="filter-tipo-btn active">Todos</button>
+                            <button class="filter-tipo-btn">Presencial</button>
+                            <button class="filter-tipo-btn">Online</button>
+                        </div>
+                    </div>
+
+                    <!-- Lista de Consultas -->
+                    <div class="consultations-list">
+
+                        <div class="consultation-item">
+                            <div class="consultation-type">
+                                <span class="badge badge-scheduled">Agendada</span>
+                                <span class="badge badge-presencial">Presencial</span>
+                            </div>
+                            <div class="consultation-info">
+                                <p class="consultation-date">06 de março de 2026</p>
+                                <p class="consultation-code">ID: CONS-001</p>
+                            </div>
+                            <div class="consultation-time">
+                                <p class="time">14:00</p>
+                            </div>
+                            <div class="consultation-action">
+                                <button class="btn-reschedule">Remarcar</button>
+                            </div>
+                        </div>
+
+                        <div class="consultation-item">
+                            <div class="consultation-type">
+                                <span class="badge badge-scheduled">Agendada</span>
+                                <span class="badge badge-presencial">Presencial</span>
+                            </div>
+                            <div class="consultation-info">
+                                <p class="consultation-date">28 de fevereiro de 2026</p>
+                                <p class="consultation-code">ID: CONS-002</p>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 60%;"></div>
+                                </div>
+                            </div>
+                            <div class="consultation-time">
+                                <p class="time">10:00</p>
+                            </div>
+                            <div class="consultation-action">
+                                <button class="btn-feedback" type="button" onclick="abrirModalRelato('CONS-002')">Enviar Relato</button>
+                            </div>
+                        </div>
+
+                        <div class="consultation-item">
+                            <div class="consultation-type">
+                                <span class="badge badge-scheduled">Agendada</span>
+                                <span class="badge badge-presencial">Presencial</span>
+                            </div>
+                            <div class="consultation-info">
+                                <p class="consultation-date">21 de fevereiro de 2026</p>
+                                <p class="consultation-code">ID: CONS-003</p>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 100%;"></div>
+                                </div>
+                            </div>
+                            <div class="consultation-time">
+                                <p class="time">16:00</p>
+                            </div>
+                            <div class="consultation-action">
+                                <button class="btn-feedback" type="button" onclick="abrirModalRelato('CONS-003')">Enviar Relato</button>
+                            </div>
+                        </div>
+
+                        <div class="consultation-item">
+                            <div class="consultation-type">
+                                <span class="badge badge-scheduled">Agendada</span>
+                                <span class="badge badge-presencial">Presencial</span>
+                            </div>
+                            <div class="consultation-info">
+                                <p class="consultation-date">14 de fevereiro de 2026</p>
+                                <p class="consultation-code">ID: CONS-004</p>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 100%;"></div>
+                                </div>
+                            </div>
+                            <div class="consultation-time">
+                                <p class="time">14:00</p>
+                            </div>
+                            <div class="consultation-action">
+                                <button class="btn-feedback" type="button" onclick="abrirModalRelato('CONS-004')">Enviar Relato</button>
+                            </div>
+                        </div>
+
+                        <div class="consultation-item">
+                            <div class="consultation-type">
+                                <span class="badge badge-scheduled">Agendada</span>
+                                <span class="badge badge-presencial">Presencial</span>
+                            </div>
+                            <div class="consultation-info">
+                                <p class="consultation-date">07 de fevereiro de 2026</p>
+                                <p class="consultation-code">ID: CONS-005</p>
+                            </div>
+                            <div class="consultation-time">
+                                <p class="time">15:00</p>
+                            </div>
+                            <div class="consultation-action">
+                                <button class="btn-reschedule">Remarcar</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Paginação -->
+                    <div class="pagination">
+                        <button class="pagination-btn">1</button>
+                        <button class="pagination-btn">2</button>
+                        <button class="pagination-btn">→</button>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </main>
+
+        <!-- Rodapé com informações de contato e links úteis -->
+        <footer class="footer">
+
+            <div class="footer-container">
+
+                <!-- Coluna sobre a terapeuta -->
+                <div class="footer-col">
+                    <h3>Maria Dinoir</h3>
+
+                    <p>
+                        Terapeuta especialista em Terapia de Reprocesso Generativo.
+                        Atendimento presencial e online.
+                    </p>
+                </div>
+
+                <!-- Coluna com informações de contato -->
+                <div class="footer-col">
+                    <h3>Contato</h3>
+
+                    <p>📧 Maria@Terapeuta.com.br</p>
+                    <p>📱 (55) 9703-9336</p>
+
+                    <p>
+                        📍 Rua Mauricio Cardoso, 328 – ap 302 <br>
+                        Alegrete, RS – CEP 97545-000
+                    </p>
+                </div>
+
+                <!-- Coluna com links úteis -->
+                <div class="footer-col">
+                    <h3>Links Úteis</h3>
+
+                    <ul>
+                        <li><a href="#">Política de Privacidade</a></li>
+                        <li><a href="#">Termos de Uso</a></li>
+                        <li><a href="#">Código de Ética</a></li>
+                        <li><a href="#">Perguntas Frequentes</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Seção inferior do footer -->
+            <div class="footer-bottom">
+
+                <p>© 2026 Maria Dinoir – Terapeuta. Todos os direitos reservados.</p>
+
+                <p class="footer-note">
+                    Este site não coleta dados pessoais sensíveis. O agendamento online está preparado
+                    para integração futura com sistema seguro.
+                </p>
+
+            </div>
+
+        </footer>
+
+        <!-- Modal de Envio de Relato -->
+        <div id="relato-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Escrever Relato da Sessão</h2>
+                    <button class="modal-close" onclick="fecharModal()">&times;</button>
+                </div>
+
+                <div class="relato-consulta-info">
+                    <p>Relato para a consulta: <strong id="consulta-id">CONS-001</strong></p>
+                </div>
+
+                <form class="relato-form" onsubmit="enviarRelato(event)">
+                    <div class="form-group">
+                        <label for="relato-texto">Seu Relato sobre a Sessão *</label>
+                        <textarea 
+                            id="relato-texto" 
+                            name="relato-texto" 
+                            placeholder="Compartilhe sua experiência com a terapeuta..."
+                            maxlength="500"
+                            required
+                        ></textarea>
+                        <p class="character-count"><span id="char-count">0</span>/500 caracteres</p>
+                    </div>
+
+                    <div class="relato-aviso">
+                        <p><strong>Aviso:</strong> Ao enviar este relato, você autoriza sua publicação no página inicial da site para compartilhamento de experiências terapêuticas. Evite incluir informações pessoais sensíveis. Seu nome de usuário será utilizado na publicação.</p>
+                    </div>
+
+                    <div class="modal-actions">
+                        <button type="submit" class="btn-enviar-relato">Enviar Relato</button>
+                        <button type="button" class="btn-cancelar-relato" onclick="fecharModal()">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <script>
+            // Função para abrir modal de relato
+            function abrirModalRelato(consultaId) {
+                document.getElementById('relato-modal').style.display = 'flex';
+                document.getElementById('consulta-id').textContent = consultaId;
+                document.getElementById('relato-texto').value = '';
+                document.getElementById('char-count').textContent = '0';
+            }
+
+            // Função para fechar modal
+            function fecharModal() {
+                document.getElementById('relato-modal').style.display = 'none';
+            }
+
+            // Contar caracteres em tempo real
+            document.addEventListener('DOMContentLoaded', function() {
+                const textarea = document.getElementById('relato-texto');
+                if (textarea) {
+                    textarea.addEventListener('input', function() {
+                        document.getElementById('char-count').textContent = this.value.length;
+                    });
+                }
+            });
+
+            // Função para enviar relato
+            function enviarRelato(event) {
+                event.preventDefault();
+                const consultaId = document.getElementById('consulta-id').textContent;
+                const relato = document.getElementById('relato-texto').value;
+                
+                if (relato.trim() === '') {
+                    alert('Por favor, escreva seu relato.');
+                    return;
+                }
+                
+                // Aqui teria integração com backend
+                alert('Relato enviado com sucesso! ID da consulta: ' + consultaId);
+                fecharModal();
+            }
+
+            // Fechar modal ao clicar fora
+            window.addEventListener('click', function(event) {
+                const modal = document.getElementById('relato-modal');
+                if (event.target === modal) {
+                    fecharModal();
+                }
+            });
+        </script>
+
+    </body>
+
+</html>
