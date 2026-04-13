@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<!-- Página de Recuperação de Senha -->
+<html lang="pt-BR">
+
+    <head>
+        <!-- Meta tags e configurações -->
+        <meta charset="UTF-8">
+        <title>Recuperar Senha | Maria Dinoir Terapeuta</title>
+        <meta name = "description" content = "Recupere o acesso à sua conta"  >
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+
+    </head>
+
+    <!-- Corpo da página de recuperação -->
+    <body class="recovery-page">
+
+        <!-- Cabeçalho com logo, navegação e botões -->
+        <header>
+
+            <img src="./assets/logo.png" alt="Logo Maria Dinoir">
+            <h2>Maria Dinoir</h2>
+
+            <!-- Menu de navegação -->
+            <nav>
+                <a href="index.html">Início</a>
+                <a href="index.html#sobre">Sobre</a>
+                <a href="index.html#areas-atendimento">Áreas de Atendimento</a>
+                <a href="index.html#funcionamento">Como Funciona</a>
+                <a href="index.html#relatos">Relatos</a>
+            </nav>
+
+            <!-- Botões de ação -->
+            <button class="btn-entrar" onclick="window.location.href='login.html'">Entrar</button>
+            <button class="btn-agendar" onclick="window.location.href='agendar-consulta.html'">Agendar Consulta</button>
+
+        </header>
+
+        <main>
+
+            <a href="login.html" class="back-button">← Voltar para Login</a>
+
+            <div class="recovery-container">
+
+                <div class="recovery-card">
+
+                    <h1>Recuperar Senha</h1>
+                    <p class="recovery-subtitle">Digite seu email para receber o link de recuperação</p>
+
+                    <form class="recovery-form">
+
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <div class="input-field">
+                                <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+                                <input type="email" id="email" name="email" placeholder="seu@email.com" required>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn-recovery">Enviar Link de Recuperação</button>
+
+                    </form>
+
+                    <div class="recovery-info">
+                        <strong>Dica de segurança:</strong> O link de recuperação expira em 2 horas. Se não receber o email, verifique sua caixa de spam.
+                    </div>
+
+                    <div class="recovery-footer">
+                        <p>Ainda não tem conta? <a href="cadastro.html" class="link-signup">Criar Conta</a></p>
+                    </div>
+
+                </div>
+
+                <p class="security-footer">Seus dados são protegidos e seguem as normas da LGPD. <br> Sistema preparado para integração segura com backend.</p>
+
+            </div>
+
+        </main>
+
+        <!-- Rodapé com informações de contato e links úteis -->
+        <footer class="footer">
+
+            <div class="footer-container">
+
+                <!-- Coluna sobre a terapeuta -->
+                <div class="footer-col">
+                    <h3>Maria Dinoir</h3>
+
+                    <p>
+                        Terapeuta especialista em Terapia de Reprocesso Generativo.
+                        Atendimento presencial e online.
+                    </p>
+                </div>
+
+                <!-- Coluna com informações de contato -->
+                <div class="footer-col">
+                    <h3>Contato</h3>
+
+                    <p>📧 Maria@Terapeuta.com.br</p>
+                    <p>📱 (55) 9703-9336</p>
+
+                    <p>
+                        📍 Rua Mauricio Cardoso, 328 – ap 302 <br>
+                        Alegrete, RS – CEP 97545-000
+                    </p>
+                </div>
+
+                <!-- Coluna com links úteis -->
+                <div class="footer-col">
+                    <h3>Links Úteis</h3>
+
+                    <ul>
+                        <li><a href="#">Política de Privacidade</a></li>
+                        <li><a href="#">Termos de Uso</a></li>
+                        <li><a href="#">Código de Ética</a></li>
+                        <li><a href="#">Perguntas Frequentes</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Seção inferior do footer -->
+            <div class="footer-bottom">
+
+                <p>© 2026 Maria Dinoir – Terapeuta. Todos os direitos reservados.</p>
+
+                <p class="footer-note">
+                    Este site não coleta dados pessoais sensíveis. O agendamento online está preparado
+                    para integração futura com sistema seguro.
+                </p>
+
+            </div>
+
+        </footer>
+
+    </body>
+
+</html>
