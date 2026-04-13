@@ -106,6 +106,10 @@ header .btn-agendar {
     color: white;
     border: 2px solid #187F7D;
     margin-left: 0.8rem;
+    display: inline-block;   
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 4px;
 }
 
 header .btn-agendar:hover {
@@ -188,6 +192,8 @@ main {
     font-size: 1rem;
     font-weight: 600;
     transition: all 0.3s ease;
+    display: inline-block;   
+    text-decoration: none;
 }
 
 .btn-hero-primary:hover {
@@ -419,23 +425,27 @@ main {
 }
 
 .cta-button {
-    display: block;
+    display: table;           /* Troque 'block' por 'table' ou 'inline-block' para o link não ocupar a largura toda da tela */
+    text-decoration: none;    /* REMOVE O SUBLINHADO */
     margin: 2.5rem auto 0;
     padding: 1rem 2.5rem;
     background-color: #14a1a6;
-    color: white;
+    color: white !important;  /* O 'important' garante que ele ignore a cor padrão de link */
     border: none;
     border-radius: 5px;
     font-size: 1.05rem;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
+    text-align: center;
 }
 
 .cta-button:hover {
     background-color: #0d7377;
+    color: white;             /* Mantém branco no hover */
     transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(20, 161, 166, 0.3);
+    text-decoration: none;    /* Garante que o sublinhado não volte no hover */
 }
 
 /* SEÇÃO RELATOS */
@@ -919,6 +929,16 @@ footer.footer {
     font-size: 0.75rem;
     color: rgba(224, 224, 224, 0.6);
     line-height: 1.5;
+}
+.footer-link {
+    text-decoration: none; /* Tira o sublinhado */
+    color: inherit;        /* Faz o link herdar a cor do texto do <p> */
+    transition: opacity 0.3s;
+}
+
+.footer-link:hover {
+    opacity: 0.7;          /* Dá um efeito visual simples ao passar o mouse */
+    text-decoration: underline; /* Opcional: só aparece o sublinhado no hover */
 }
 
 /* ========================================
