@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<!-- Página de Cadastro - Criar Nova Conta -->
+<html lang="pt-BR">
+
+    <head>
+        <!-- Meta tags e configurações -->
+        <meta charset="UTF-8">
+        <title>Criar Conta | Maria Dinoir Terapeuta</title>
+        <meta name = "description" content = "Crie sua conta para acessar a área do paciente"  >
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+
+    </head>
+
+    <!-- Corpo da página de cadastro -->
+    <body class="signup-page">
+
+        <!-- Cabeçalho com logo, navegação e botões -->
+        <header>
+
+            <img src="./assets/logo.png" alt="Logo Maria Dinoir">
+            <h2>Maria Dinoir</h2>
+
+            <!-- Menu de navegação -->
+            <nav>
+                <a href="index.html">Início</a>
+                <a href="index.html#sobre">Sobre</a>
+                <a href="index.html#areas-atendimento">Áreas de Atendimento</a>
+                <a href="index.html#funcionamento">Como Funciona</a>
+                <a href="index.html#relatos">Relatos</a>
+            </nav>
+
+            <!-- Botões de ação -->
+            <button class="btn-entrar" onclick="window.location.href='login.html'">Entrar</button>
+            <button class="btn-agendar" onclick="window.location.href='agendar-consulta.html'">Agendar Consulta</button>
+
+        </header>
+
+        <main>
+
+            <a href="login.html" class="back-button">← Voltar para Login</a>
+
+            <div class="signup-container">
+
+                <div class="signup-card">
+
+                    <h1>Criar Nova Conta</h1>
+                    <p class="signup-subtitle">Preencha seus dados para criar sua conta</p>
+
+                    <form class="signup-form">
+
+                        <div class="form-group">
+                            <label for="fullname">Nome Completo *</label>
+                            <div class="input-field">
+                                <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                                <input type="text" id="fullname" name="fullname" placeholder="Digite seu nome completo" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <div class="input-field">
+                                <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+                                <input type="email" id="email" name="email" placeholder="seu@email.com" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">Telefone *</label>
+                                <div class="input-field">
+                                <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                                    <input type="tel" id="phone" name="phone" placeholder="(00) 00000-0000" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="birthdate">Data de Nascimento *</label>
+                                <div class="input-field">
+                                <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                                    <input type="date" id="birthdate" name="birthdate" placeholder="dd/mm/aaaa" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password">Senha *</label>
+                            <div class="input-field">
+                                <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                                <input type="password" id="password" name="password" placeholder="Mínimo 8 caracteres" required>
+                            </div>
+                            <p class="password-hint">Use no mínimo 8 caracteres com letras, números e símbolos</p>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="confirm-password">Confirmar Senha *</label>
+                            <div class="input-field">
+                                <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                                <input type="password" id="confirm-password" name="confirm-password" placeholder="Digite a senha novamente" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group checkbox">
+                            <input type="checkbox" id="terms" name="terms" required>
+                            <label for="terms">Declaro que li e aceito os <a href="#">Termos de Uso</a> e a <a href="#">Política de Privacidade</a>. Concordo com o armazenamento dos meus dados conforme a LGPD.</label>
+                        </div>
+
+                        <button type="submit" class="btn-signup">Criar Conta</button>
+
+                    </form>
+
+                    <div class="signup-footer">
+                        <p>Já possui uma conta? <a href="login.html" class="link-login">Fazer Login</a></p>
+                    </div>
+
+                </div>
+
+                <p class="security-footer">Seus dados são protegidos e seguem as normas da LGPD. <br> Sistema preparado para integração segura com backend.</p>
+
+            </div>
+
+        </main>
+
+        <!-- Rodapé com informações de contato e links úteis -->
+        <footer class="footer">
+
+            <div class="footer-container">
+
+                <!-- Coluna sobre a terapeuta -->
+                <div class="footer-col">
+                    <h3>Maria Dinoir</h3>
+
+                    <p>
+                        Terapeuta especialista em Terapia de Reprocesso Generativo.
+                        Atendimento presencial e online.
+                    </p>
+                </div>
+
+                <!-- Coluna com informações de contato -->
+                <div class="footer-col">
+                    <h3>Contato</h3>
+
+                    <p>📧 Maria@Terapeuta.com.br</p>
+                    <p>📱 (55) 9703-9336</p>
+
+                    <p>
+                        📍 Rua Mauricio Cardoso, 328 – ap 302 <br>
+                        Alegrete, RS – CEP 97545-000
+                    </p>
+                </div>
+
+                <!-- Coluna com links úteis -->
+                <div class="footer-col">
+                    <h3>Links Úteis</h3>
+
+                    <ul>
+                        <li><a href="#">Política de Privacidade</a></li>
+                        <li><a href="#">Termos de Uso</a></li>
+                        <li><a href="#">Código de Ética</a></li>
+                        <li><a href="#">Perguntas Frequentes</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Seção inferior do footer -->
+            <div class="footer-bottom">
+
+                <p>© 2026 Maria Dinoir – Terapeuta. Todos os direitos reservados.</p>
+
+                <p class="footer-note">
+                    Este site não coleta dados pessoais sensíveis. O agendamento online está preparado
+                    para integração futura com sistema seguro.
+                </p>
+
+            </div>
+
+        </footer>
+
+    </body>
+
+</html>
