@@ -1013,8 +1013,8 @@ footer.footer {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 1.5rem;
-    gap: 6px;
+    padding: 1.1rem;
+    gap: 2px;
     border: 2px solid #ddd;
     border-radius: 8px;
     cursor: pointer;
