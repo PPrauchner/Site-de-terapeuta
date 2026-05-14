@@ -885,3 +885,89 @@ footer.footer {
     }
 
 }
+/* ========================================
+   SEÇÃO FAQ (PERGUNTAS FREQUENTES)
+   ======================================== */
+
+.faq-section {
+    padding: 4rem 2rem;
+    background-color: #fdfdfd;
+}
+
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-container h2 {
+    text-align: left;
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+}
+
+.faq-subtitle {
+    margin-bottom: 3rem;
+    color: #555;
+    font-size: 1.1rem;
+}
+
+.faq-item {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px; /* Borda arredondada conforme solicitado */
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+.faq-item[open] {
+    border-color: #14a1a6;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.faq-item summary {
+    padding: 1.2rem 1.5rem;
+    list-style: none; /* Esconde a seta padrão */
+    cursor: pointer;
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #1e293b;
+}
+
+/* Criando a seta personalizada usando pseudo-elemento */
+.faq-item summary::after {
+    content: '\F282'; /* Ícone de seta do Bootstrap Icons */
+    font-family: 'bootstrap-icons';
+    transition: transform 0.3s ease;
+    color: #14a1a6;
+}
+
+.faq-item[open] summary::after {
+    transform: rotate(180deg);
+}
+
+/* Esconde a seta nativa no Chrome/Safari */
+.faq-item summary::-webkit-details-marker {
+    display: none;
+}
+
+.faq-content {
+    padding: 0 1.5rem 1.5rem 1.5rem;
+    color: #4b5563;
+    line-height: 1.7;
+    border-top: 1px solid #f0f0f0;
+    padding-top: 1rem;
+}
+
+.faq-footer {
+    text-align: center;
+    margin-top: 3rem;
+    font-size: 0.95rem;
+}
+
+.faq-footer a {
+    color: #14a1a6;
+    text-decoration: none;
+    font-weight: 600;
+}
