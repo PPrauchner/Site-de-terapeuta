@@ -2093,3 +2093,84 @@ footer.footer {
         transform: translateY(0);
     }
 }
+/* ========================================
+   RESPONSIVIDADE E BOTÃO DO MENU MOBILE
+   ======================================== */
+
+.nav-como-funciona {
+    display: none;
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #0d7377;
+    cursor: pointer;
+    padding: 0.2rem 0.5rem;
+    z-index: 110;
+}
+
+@media (max-width: 992px) {
+    header {
+        justify-content: space-between; /* Mantém logo na esquerda e empurra o resto para a direita */
+        gap: 0.8rem;
+        padding: 1rem;
+    }
+
+    /* Mantém o botão de agendar visível no mobile, mas com ajustes para telas menores */
+    header .btn-agendar {
+        display: inline-block !important;
+        margin-left: auto; /* Empurra o botão e o hambúrguer tudo para o canto direito */
+        padding: 8px 14px;  /* Reduzido para caber lado a lado */
+        font-size: 0.85rem;  /* Reduzido para não quebrar linha */
+        white-space: nowrap;
+    }
+
+    /* Exibe o botão hambúrguer ao lado direito do agendar */
+    .menu-toggle {
+        display: block;
+    }
+
+    /* Menu oculto que abre para baixo */
+    header nav.nav-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #fdfdfd;
+        flex-direction: column;
+        gap: 0;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease-in-out;
+    }
+
+    /* Quando ativo, mostra os links */
+    header nav.nav-menu.active {
+        max-height: 400px;
+    }
+
+    header nav.nav-menu a {
+        width: 100%;
+        text-align: center;
+        padding: 1rem;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    /* Habilita o Como Funciona no menu expansível */
+    .nav-como-funciona {
+        display: block !important;
+        font-weight: 600;
+        color: #14a1a6;
+    }
+}
+
+/* Ajuste fino extra para telas muito pequenas (ex: iPhone SE antigos) */
+@media (max-width: 360px) {
+    header h2 {
+        display: none; /* Esconde a escrita "Maria Dinoir" mantendo apenas o Logo, dando mais espaço para os botões */
+    }
+}
