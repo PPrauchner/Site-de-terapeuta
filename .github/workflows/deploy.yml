@@ -8,8 +8,8 @@
 #   FTP_USERNAME  usuário FTP
 #   FTP_PASSWORD  senha FTP
 #
-# Ajuste `server-dir` para o diretório público do seu plano (no Hostinger
-# normalmente `public_html/`).
+# O `server-dir` aponta para a raiz servida do domínio. Aqui é um domínio addon,
+# então o caminho é domains/<dominio>/public_html/ (ver comentário no passo de deploy).
 
 name: CI/CD — Deploy Hostinger
 
@@ -60,7 +60,10 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftps
           local-dir: ./dist/
-          server-dir: ./public_html/
+          # Este é um domínio addon: o login FTP cai no home (~/), e o site é
+          # servido de domains/<dominio>/public_html/ (NÃO no ~/public_html/, que
+          # tem um arquivo DO_NOT_UPLOAD_HERE). Por isso o caminho completo abaixo.
+          server-dir: ./domains/maria-dinoir-terapeuta.com/public_html/
           # Primeiro deploy: zera public_html/ antes de subir, para uma troca limpa
           # do site estático antigo (remove arquivos órfãos).
           # ⚠️ REMOVA esta linha após o primeiro deploy bem-sucedido — do contrário
