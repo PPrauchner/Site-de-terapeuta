@@ -1,0 +1,16 @@
+dist/
+.astro/
+node_modules/
+pnpm-lock.yaml
+
+# Docs e config do agente (não reformatar — texto em pt-BR)
+.claude/
+docs/
+*.md
+
+# Site estático legado (mantido durante a migração, não reformatar)
+assets/
+pages/
+index.html
+style_old.css
+README.md

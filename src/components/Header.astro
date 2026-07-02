@@ -1,0 +1,225 @@
+---
+import { Image } from 'astro:assets';
+import logo from '../assets/logo.png';
+---
+
+<!-- Cabeçalho com navegação e logomarca — presente em todas as páginas -->
+<header>
+  <Image src={logo} alt="Logo Maria Dinoir" />
+  <h2>Maria Dinoir</h2>
+
+  <!-- Menu de navegação (links root-relative funcionam de qualquer página) -->
+  <nav class="nav-menu">
+    <a href="/#inicio">Início</a>
+    <a href="/#areas-atendimento">Áreas de Atendimento</a>
+    <a href="/#sobre">Sobre</a>
+    <a href="/#modalidades">Modalidades</a>
+    <a href="/#agendamento">Agendamento</a>
+    <a href="/#relatos">Relatos</a>
+    <a href="/como-funciona" class="nav-como-funciona">Como Funciona</a>
+  </nav>
+
+  <!-- Botões de ação -->
+  <a href="https://wa.me/555597039336" target="_blank" class="btn-agendar"> Agendar Consulta </a>
+
+  <button class="menu-toggle" aria-label="Abrir menu de navegação">
+    <i class="bi bi-list"></i>
+  </button>
+</header>
+
+<style>
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: var(--color-surface);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    gap: 1.5rem;
+  }
+
+  header img {
+    height: 50px;
+    width: auto;
+    flex-shrink: 0;
+  }
+
+  header h2 {
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+    color: var(--color-primary-dark);
+    margin: 0;
+    white-space: nowrap;
+    font-weight: 600;
+  }
+
+  header nav {
+    display: flex;
+    gap: 1.5rem;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+  }
+
+  header nav a {
+    color: var(--color-text);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    font-size: 0.95rem;
+  }
+
+  header nav a:hover {
+    color: var(--color-primary);
+  }
+
+  header .btn-agendar {
+    background-color: var(--color-primary-strong);
+    color: white;
+    border: 2px solid var(--color-primary-strong);
+    margin-left: 0.8rem;
+    display: inline-block;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+  }
+
+  header .btn-agendar:hover {
+    background-color: var(--color-primary-darker);
+    border-color: var(--color-primary-darker);
+  }
+
+  /* Menu mobile: botão hambúrguer e link "Como Funciona" ocultos no desktop */
+  .nav-como-funciona {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: var(--color-primary-dark);
+    cursor: pointer;
+    padding: 0.2rem 0.5rem;
+    z-index: 110;
+  }
+
+  /* ===== Responsivo (ordem de cascata preservada do style.css original) ===== */
+  @media (max-width: 768px) {
+    header {
+      flex-wrap: wrap;
+      padding: 1rem;
+      gap: 1rem;
+    }
+
+    header h2 {
+      font-size: 1.1rem;
+    }
+
+    header nav {
+      order: 3;
+      width: 100%;
+      gap: 1rem;
+      font-size: 0.85rem;
+    }
+
+    header button {
+      padding: 0.5rem 1rem;
+      font-size: 0.85rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    header {
+      padding: 0.8rem;
+      gap: 0.5rem;
+    }
+
+    header img {
+      height: 40px;
+    }
+
+    header h2 {
+      font-size: 0.9rem;
+    }
+
+    header nav {
+      display: none;
+    }
+
+    header button {
+      padding: 0.4rem 0.8rem;
+      font-size: 0.75rem;
+    }
+  }
+
+  @media (max-width: 992px) {
+    header {
+      justify-content: space-between; /* logo à esquerda, resto à direita */
+      gap: 0.8rem;
+      padding: 1rem;
+    }
+
+    /* Mantém o botão de agendar visível no mobile */
+    header .btn-agendar {
+      display: inline-block !important;
+      margin-left: auto;
+      padding: 8px 14px;
+      font-size: 0.85rem;
+      white-space: nowrap;
+    }
+
+    /* Exibe o hambúrguer ao lado direito do agendar */
+    .menu-toggle {
+      display: block;
+    }
+
+    /* Menu oculto que abre para baixo */
+    header nav.nav-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background-color: var(--color-surface);
+      flex-direction: column;
+      gap: 0;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease-in-out;
+    }
+
+    header nav.nav-menu.active {
+      max-height: 400px;
+    }
+
+    header nav.nav-menu a {
+      width: 100%;
+      text-align: center;
+      padding: 1rem;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    /* Habilita o "Como Funciona" no menu expansível */
+    .nav-como-funciona {
+      display: block !important;
+      font-weight: 600;
+      color: var(--color-primary);
+    }
+  }
+
+  /* Telas muito pequenas: esconde o texto "Maria Dinoir", mantém só o logo */
+  @media (max-width: 360px) {
+    header h2 {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  import '../scripts/menu.ts';
+</script>

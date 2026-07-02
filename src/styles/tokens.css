@@ -1,0 +1,39 @@
+/* Fontes do Google (Lora = serifada p/ títulos, Poppins = sans p/ corpo) */
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/*
+  Tokens de design globais — fonte da verdade da identidade visual.
+  Cor primária teal #14a1a6 (ver README). Media queries usam os valores
+  literais dos breakpoints (CSS não permite var() dentro de @media).
+*/
+:root {
+  /* Paleta teal */
+  --color-primary: #14a1a6;
+  --color-primary-dark: #0d7377;
+  --color-primary-darker: #0b575b;
+  --color-primary-strong: #187f7d; /* botão "Agendar Consulta" no header */
+  --color-accent-light: #1cd6dc; /* subtítulo do hero */
+  --color-teal-soft: #5bb8b3; /* botão fechar do modal */
+  --color-teal-footer: #a8d8db; /* títulos das colunas do rodapé */
+
+  /* Superfícies / fundos */
+  --color-bg: #f9f9f9;
+  --color-surface: #fdfdfd;
+  --color-white: #ffffff;
+  --color-footer-bg: #111620;
+
+  /* Texto */
+  --color-text: #333;
+  --color-text-muted: #555;
+  --color-text-soft: #666;
+  --color-text-faint: #999;
+
+  /* Tipografia */
+  --font-sans: 'Poppins', sans-serif;
+  --font-serif: 'Lora', serif;
+
+  /* Breakpoints (referência de documentação) */
+  --bp-lg: 992px;
+  --bp-md: 768px;
+  --bp-sm: 480px;
+}

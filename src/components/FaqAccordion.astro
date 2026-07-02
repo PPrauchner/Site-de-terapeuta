@@ -1,0 +1,102 @@
+---
+export interface FaqEntry {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  items: FaqEntry[];
+}
+
+const { items } = Astro.props;
+---
+
+<div class="faq-container">
+  {
+    items.map((item) => (
+      <details class="faq-item">
+        <summary>{item.question}</summary>
+        <div class="faq-content">
+          <p>{item.answer}</p>
+        </div>
+      </details>
+    ))
+  }
+
+  <div class="faq-footer">
+    <p>
+      Ainda tem dúvidas?
+      <a href="https://wa.me/555597039336" target="_blank">Fale comigo diretamente.</a>
+    </p>
+  </div>
+</div>
+
+<style>
+  .faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .faq-item {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+  }
+
+  .faq-item[open] {
+    border-color: var(--color-primary);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  }
+
+  .faq-item summary {
+    padding: 1.2rem 1.5rem;
+    list-style: none;
+    cursor: pointer;
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #1e293b;
+  }
+
+  .faq-item summary::after {
+    content: '\F282';
+    font-family: 'bootstrap-icons';
+    transition: transform 0.3s ease;
+    color: var(--color-primary);
+  }
+
+  .faq-item[open] summary::after {
+    transform: rotate(180deg);
+  }
+
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-content {
+    padding: 0 1.5rem 1.5rem 1.5rem;
+    color: #4b5563;
+    line-height: 1.7;
+    border-top: 1px solid #f0f0f0;
+    padding-top: 1rem;
+  }
+
+  .faq-footer {
+    text-align: center;
+    margin-top: 3rem;
+    font-size: 0.95rem;
+  }
+
+  .faq-footer a {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 600;
+  }
+</style>
+
+<script>
+  import '../scripts/faq.ts';
+</script>

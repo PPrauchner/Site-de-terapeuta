@@ -1,0 +1,49 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import InfoCard from '../components/InfoCard.astro';
+---
+
+<BaseLayout title="Maria Dinoir - Política de Privacidade">
+  <main>
+    <PageHero
+      id="privacidade"
+      title="Política de Privacidade"
+      subtitle="Sua privacidade é tratada com o mesmo cuidado e respeito que oferecemos em cada sessão."
+    />
+
+    <!-- Cards Informativos -->
+    <section class="page-section">
+      <div class="page-section__container">
+        <div class="info-cards-container info-cards-container--2cols-fixed">
+          <InfoCard icon="bi-shield-lock" title="Quais dados são coletados">
+            Coletamos apenas os dados necessários para contato e agendamento, como nome, e-mail e
+            telefone informados no formulário de contato.
+          </InfoCard>
+
+          <InfoCard icon="bi-lock" title="Como esses dados são usados">
+            As informações enviadas são utilizadas apenas para comunicação entre paciente e
+            terapeuta respeitando a confidencialidade e a privacidade dos dados. Eles não são
+            compartilhados, vendidos ou utilizados para fins comerciais.
+          </InfoCard>
+
+          <InfoCard icon="bi-cookie" title="Cookies e navegação">
+            Este site pode utilizar cookies básicos para melhorar sua experiência de navegação.
+            Nenhuma informação sensível é armazenada.
+          </InfoCard>
+
+          <InfoCard icon="bi-chat-dots" title="Dúvidas ou solicitações">
+            Se quiser saber quais dados temos sobre você, dúvida ou solicitação de exclusão, basta
+            entrar em contato pelo e-mail
+            <a href="mailto:di.mendes237@gmail.com.br">MariaDinoir@Terapeuta.com.br</a>
+          </InfoCard>
+        </div>
+      </div>
+    </section>
+
+    <!-- Atualização -->
+    <div class="page-section__footer-note">
+      <p>Último atualização: maio de 2026</p>
+    </div>
+  </main>
+</BaseLayout>

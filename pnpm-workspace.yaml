@@ -1,0 +1,5 @@
+# Configurações do pnpm (pnpm 11+ lê ajustes globais aqui, não mais no package.json).
+# Permite os build scripts nativos necessários: esbuild (Vite) e sharp (astro:assets).
+allowBuilds:
+  esbuild: true
+  sharp: true
