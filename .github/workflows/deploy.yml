@@ -8,8 +8,8 @@
 #   FTP_USERNAME  usuário FTP
 #   FTP_PASSWORD  senha FTP
 #
-# O `server-dir` aponta para a raiz servida do domínio. Aqui é um domínio addon,
-# então o caminho é domains/<dominio>/public_html/ (ver comentário no passo de deploy).
+# O `server-dir` é ./ porque a conta FTP é dedicada a este site (chroot direto na
+# pasta pública do domínio) — ver comentário no passo de deploy.
 
 name: CI/CD — Deploy Hostinger
 
@@ -52,7 +52,9 @@ jobs:
 
       # ---- Deploy (somente em push na main; PRs param no gate/build) ----
       - name: Deploy via FTPS
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        if: >-
+          (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
+          && github.ref == 'refs/heads/main'
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_SERVER }}
@@ -60,10 +62,9 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftps
           local-dir: ./dist/
-          # Este é um domínio addon: o login FTP cai no home (~/), e o site é
-          # servido de domains/<dominio>/public_html/ (NÃO no ~/public_html/, que
-          # tem um arquivo DO_NOT_UPLOAD_HERE). Por isso o caminho completo abaixo.
-          server-dir: ./domains/maria-dinoir-terapeuta.com/public_html/
+          # A conta FTP é dedicada a este site (chroot em
+          # domains/maria-dinoir-terapeuta.com/public_html), então ./ já é a raiz servida.
+          server-dir: ./
           # Primeiro deploy: zera public_html/ antes de subir, para uma troca limpa
           # do site estático antigo (remove arquivos órfãos).
           # ⚠️ REMOVA esta linha após o primeiro deploy bem-sucedido — do contrário
