@@ -91,3 +91,23 @@ Maria Dinoir — Terapeuta · Email `Maria@Terapeuta.com.br` · Tel/WhatsApp (55
 
 - GitHub: `https://github.com/PPrauchner/Site-de-terapeuta`
 - Branches ativas: `main`, `development`, `site-completo`.
+
+---
+
+## Notas de manutenção (pendências conhecidas)
+
+- **Migração para Astro em andamento** — decisão registrada em
+  [`docs/adr/0001-migracao-astro-php-hostinger.md`](./docs/adr/0001-migracao-astro-php-hostinger.md).
+  Acontece na branch `astro-migration`. Quando atingir paridade com `development` e for
+  mergeada: atualizar este `CLAUDE.md` (comandos `dev`/`build` viram `pnpm dev`/`pnpm build`
+  do Astro, estrutura de pastas muda para `src/components`, `src/layouts`, `src/pages`,
+  `src/styles`, `src/scripts`) e também a linha "Site de Terapeuta" na tabela de comandos do
+  `CLAUDE.md` do workspace (`~/Documents/ES/CLAUDE.md`) — o aviso sobre as 3 branches
+  confusas deixa de valer depois que `development`/`site-completo` forem aposentadas.
+- **Glossário de domínio (`CONTEXT.md`) ainda não existe** — as páginas de
+  autenticação/agendamento (`login`, `cadastro`, `agendar-consulta`, `área-paciente`,
+  `recuperação-senha`) ficaram de fora da migração para Astro, congeladas em
+  `site-completo` só como referência. Quando o backend PHP+MySQL for desenhado de
+  verdade (ver ADR 0001), essa é a hora certa de abrir uma sessão `grill-with-docs`
+  focada em domínio (termos como "paciente", "consulta", "área do paciente") — não em
+  stack.
