@@ -61,3 +61,9 @@ jobs:
           protocol: ftps
           local-dir: ./dist/
           server-dir: ./public_html/
+          # Primeiro deploy: zera public_html/ antes de subir, para uma troca limpa
+          # do site estático antigo (remove arquivos órfãos).
+          # ⚠️ REMOVA esta linha após o primeiro deploy bem-sucedido — do contrário
+          # todo deploy futuro apagará TUDO em public_html/ antes de subir (incluindo
+          # o backend PHP quando ele existir).
+          dangerous-clean-slate: true
