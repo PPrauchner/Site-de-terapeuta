@@ -65,9 +65,3 @@ jobs:
           # A conta FTP é dedicada a este site (chroot em
           # domains/maria-dinoir-terapeuta.com/public_html), então ./ já é a raiz servida.
           server-dir: ./
-          # Primeiro deploy: zera public_html/ antes de subir, para uma troca limpa
-          # do site estático antigo (remove arquivos órfãos).
-          # ⚠️ REMOVA esta linha após o primeiro deploy bem-sucedido — do contrário
-          # todo deploy futuro apagará TUDO em public_html/ antes de subir (incluindo
-          # o backend PHP quando ele existir).
-          dangerous-clean-slate: true
