@@ -1,0 +1,256 @@
+---
+import Modal, { type ModalItem } from './Modal.astro';
+
+const emailHref =
+  'https://mail.google.com/mail/?view=cm&fs=1&to=di.mendes237@gmail.com.br&su=Dúvida sobre consulta';
+const mapsHref =
+  'https://www.google.com/maps/search/?api=1&query=Rua+Mauricio+Cardoso,+328,+Alegrete,+RS';
+
+const modalOnlineItems: ModalItem[] = [
+  {
+    icon: 'bi-camera-video',
+    heading: 'Sessões por videochamada',
+    text: 'Atendimento realizado pelo Google Meet, em ambiente reservado e tranquilo.',
+  },
+  {
+    icon: 'bi-shield-check',
+    heading: 'Ambiente seguro e sigiloso',
+    text: 'O sigilo e a ética são os mesmos do atendimento presencial.',
+  },
+  {
+    icon: 'bi-wifi',
+    heading: 'Só é preciso conexão',
+    text: 'Celular ou computador com internet, câmera e um cantinho reservado.',
+  },
+];
+
+const modalCancelamentoItems: ModalItem[] = [
+  {
+    icon: 'bi-calendar-check',
+    heading: 'Cancelamento',
+    text: 'Cancelamentos devem ser realizados com no mínimo 24 horas de antecedência. Sessões canceladas fora desse prazo poderão ser cobradas.',
+  },
+  {
+    icon: 'bi-clock',
+    heading: 'Atrasos',
+    text: 'Em caso de atraso, a sessão acontece dentro do horário já reservado, sem prorrogação, para respeitar o horário do próximo atendimento.',
+  },
+  {
+    icon: 'bi-arrow-counterclockwise',
+    heading: 'Remarcação',
+    text: 'Remarcações são bem-vindas sempre que possível, dentro do prazo de 24 horas, conforme disponibilidade da agenda.',
+  },
+];
+---
+
+<!-- Rodapé com informações de contato e links úteis — presente em todas as páginas -->
+<footer class="footer">
+  <div class="footer-container">
+    <!-- Coluna sobre a terapeuta -->
+    <div class="footer-col">
+      <h3>Maria Dinoir</h3>
+      <p>
+        Terapeuta especialista em Terapia de Reprocesso Generativo. Atendimento presencial e online.
+      </p>
+    </div>
+
+    <!-- Coluna de contato -->
+    <div class="footer-col">
+      <h3>Contato</h3>
+
+      <p>
+        <a href={emailHref} target="_blank" class="footer-link">
+          <i class="bi bi-envelope-fill"></i>
+          di.mendes237@gmail.com.br
+        </a>
+      </p>
+
+      <p>
+        <a href="https://wa.me/5555997039336" target="_blank" class="footer-link">
+          <i class="bi bi-whatsapp"></i>
+          (55) 9703-9336
+        </a>
+      </p>
+
+      <p>
+        <a href={mapsHref} target="_blank" class="footer-link">
+          <i class="bi bi-geo-alt-fill"></i>
+          <span>
+            Rua Mauricio Cardoso, 328 – ap 302 <br />
+            Alegrete, RS – CEP 97545-000
+          </span>
+        </a>
+      </p>
+
+      <p>
+        <a
+          href="https://www.instagram.com/terapeuta_mariadinoir/"
+          target="_blank"
+          class="footer-link"
+        >
+          <i class="bi bi-instagram"></i>
+          @terapeuta_mariadinoir
+        </a>
+      </p>
+    </div>
+
+    <!-- Coluna com links úteis -->
+    <div class="footer-col">
+      <h3>Informações Importantes</h3>
+
+      <ul class="footer-links">
+        <li><a href="/como-funciona">Como funciona a terapia</a></li>
+        <li><a href="#" data-modal-open="modal-online">Atendimento online</a></li>
+        <li><a href="#" data-modal-open="modal-cancelamento">Política de cancelamento</a></li>
+        <li><a href="/faq">Perguntas frequentes</a></li>
+        <li><a href="/privacidade">Política de privacidade</a></li>
+      </ul>
+    </div>
+
+    <!-- Modais acionados pelos links acima -->
+    <Modal
+      id="modal-online"
+      title="Atendimento online"
+      subtitle="Cuidado emocional onde você estiver, com a mesma qualidade do presencial."
+      items={modalOnlineItems}
+    />
+
+    <Modal
+      id="modal-cancelamento"
+      title="Política de cancelamento"
+      subtitle="Combinados que cuidam do tempo de todos."
+      items={modalCancelamentoItems}
+    />
+  </div>
+
+  <!-- Seção inferior do footer -->
+  <div class="footer-bottom">
+    <p>© 2026 Maria Dinoir – Terapeuta. Todos os direitos reservados.</p>
+    <p class="footer-note">
+      Este site não coleta dados pessoais sensíveis. O agendamento online está preparado para
+      integração futura com sistema seguro.
+    </p>
+  </div>
+</footer>
+
+<style>
+  footer.footer {
+    background-color: var(--color-footer-bg);
+    color: #e0e0e0;
+    padding: 1rem 2rem;
+    margin-top: 2.5rem;
+  }
+
+  .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .footer-col h3 {
+    color: var(--color-teal-footer);
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    font-family: var(--font-serif);
+    font-weight: 600;
+  }
+
+  .footer-col p {
+    font-size: 0.8rem;
+    line-height: 1.5;
+    color: rgba(224, 224, 224, 0.8);
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-col ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .footer-col ul li {
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-col ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: 0.8rem;
+  }
+
+  .footer-col ul li a:hover {
+    color: var(--color-primary);
+  }
+
+  .footer-bottom {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .footer-bottom p {
+    font-size: 0.8rem;
+    color: rgba(224, 224, 224, 0.7);
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-note {
+    font-size: 0.75rem;
+    color: rgba(224, 224, 224, 0.6);
+    line-height: 1.5;
+  }
+
+  .footer-link {
+    text-decoration: none;
+    color: inherit;
+    transition: opacity 0.3s;
+  }
+
+  .footer-link:hover {
+    opacity: 0.7;
+    text-decoration: underline;
+  }
+
+  @media (max-width: 768px) {
+    footer.footer {
+      padding: 1.5rem 1rem;
+    }
+
+    .footer-container {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .footer-col h3 {
+      font-size: 1rem;
+    }
+
+    .footer-bottom p {
+      font-size: 0.75rem;
+    }
+
+    .footer-note {
+      font-size: 0.7rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .footer-container {
+      gap: 1rem;
+    }
+
+    .footer-col p,
+    .footer-col ul li a {
+      font-size: 0.75rem;
+    }
+  }
+</style>
+
+<script>
+  import '../scripts/modal.ts';
+</script>

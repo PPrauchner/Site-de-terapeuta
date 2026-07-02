@@ -1,0 +1,676 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import InfoCard from '../components/InfoCard.astro';
+import CtaSection from '../components/CtaSection.astro';
+---
+
+<BaseLayout title="Maria Dinoir - Como Funciona">
+  <Fragment slot="head">
+    <script is:inline src="https://unpkg.com/@phosphor-icons/web"></script>
+  </Fragment>
+
+  <main>
+    <PageHero
+      id="funcionamento"
+      title="Como Funciona a Terapia"
+      subtitle="Procurar terapia é um ato de coragem e cuidado consigo. Aqui você encontra um espaço respeitoso, no seu ritmo, com total sigilo e segurança emocional."
+    />
+
+    <!-- Cards Informativos -->
+    <section class="page-section">
+      <div class="page-section__container">
+        <div class="info-cards-container info-cards-container--2cols">
+          <InfoCard icon="bi-heart" title="A primeira sessão">
+            Um espaço de escuta e acolhimento, onde buscaremos compreender sua história, suas
+            demandas e seus objetivos. Você não precisa preparar nada — basta chegar como está.
+          </InfoCard>
+
+          <InfoCard icon="bi-chat" title={'Você não precisa "saber falar"'}>
+            Não existe forma certa de conversar com uma terapeuta. Conduzirei o processo com
+            empatia, respeitando seu tempo e o que lhe faz sentido pra você naquele momento.
+          </InfoCard>
+
+          <InfoCard icon="bi-hourglass" title="Duração e frequência">
+            Cada sessão dura em média 50 minutos. Geralmente acompanham semanalmente, mas a
+            frequência pode ser adaptada conforme o seu caso.
+          </InfoCard>
+
+          <InfoCard icon="bi-shield-check" title="Ambiente seguro e sigiloso">
+            Tudo o que é compartilhado fica em sigilo, segundo os princípios éticos da prática
+            terapêutica. Aqui você pode falar livremente.
+          </InfoCard>
+
+          <InfoCard icon="bi-geo-alt" title="Presencial">
+            Atendimento em consultório acolhedor, em Alegrete - RS com privacidade e conforto.
+          </InfoCard>
+
+          <InfoCard icon="bi-camera-video" title="Online">
+            Sessões por videochamada com a mesma qualidade e ética do atendimento presencial. Atendo
+            todo o Brasil.
+          </InfoCard>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção: Como acontece o acompanhamento -->
+    <section class="journey-section">
+      <div class="container">
+        <div class="journey-header">
+          <div class="journey-badge">
+            <i class="ph-light ph-circles-four"></i>
+            A jornada terapêutica
+          </div>
+          <h2 class="journey-title">Como acontece o acompanhamento</h2>
+          <p class="journey-subtitle">
+            O processo terapêutico acontece de forma gradual, respeitando seu tempo, sua história e
+            suas necessidades emocionais.
+          </p>
+        </div>
+
+        <div class="journey-timeline">
+          <div class="timeline-container">
+            <div class="timeline-step">
+              <div class="step-icon-wrapper">
+                <div class="step-icon">
+                  <i class="ph-light ph-heart"></i>
+                </div>
+              </div>
+              <span class="step-label">ETAPA 01</span>
+              <h3 class="step-title">Primeiro encontro</h3>
+              <p class="step-description">
+                Uma sessão inicial para compreender sua história, suas demandas e os objetivos do
+                acompanhamento terapêutico.
+              </p>
+            </div>
+
+            <div class="timeline-step">
+              <div class="step-icon-wrapper">
+                <div class="step-icon">
+                  <i class="ph-light ph-plant"></i>
+                </div>
+              </div>
+              <span class="step-label">ETAPA 02</span>
+              <h3 class="step-title">Processo terapêutico</h3>
+              <p class="step-description">
+                As sessões acontecem de forma contínua e estruturada, promovendo escuta,
+                reprocessamento emocional e desenvolvimento pessoal.
+              </p>
+            </div>
+
+            <div class="timeline-step">
+              <div class="step-icon-wrapper">
+                <div class="step-icon">
+                  <i class="ph-light ph-flower"></i>
+                </div>
+              </div>
+              <span class="step-label">ETAPA 03</span>
+              <h3 class="step-title">Transformação emocional</h3>
+              <p class="step-description">
+                O acompanhamento busca promover mais clareza emocional, equilíbrio, autoconhecimento
+                e qualidade de vida.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção: O que é a TRG? -->
+    <section class="trg-section">
+      <div class="container">
+        <div class="trg-content">
+          <div class="trg-text-column">
+            <span class="trg-label">TERAPIA DE REPROCESSO GENERATIVO</span>
+            <h2 class="trg-title">O que é a TRG?</h2>
+
+            <p class="trg-description">
+              A Terapia de Reprocesso Generativo (TRG) é uma abordagem terapêutica voltada para
+              identificação e reprocessamento de emoções, experiências e padrões emocionais que
+              podem impactar sua vida.
+            </p>
+
+            <p class="trg-description">
+              O acompanhamento acontece de forma acolhedora e respeitosa, buscando promover
+              equilíbrio emocional, autoconhecimento e transformação interna.
+            </p>
+
+            <div class="trg-benefits-grid">
+              <div class="benefit-item">
+                <span class="benefit-check">✓</span>
+                <span class="benefit-text">Mais clareza emocional</span>
+              </div>
+              <div class="benefit-item">
+                <span class="benefit-check">✓</span>
+                <span class="benefit-text">Desenvolvimento pessoal</span>
+              </div>
+              <div class="benefit-item">
+                <span class="benefit-check">✓</span>
+                <span class="benefit-text">Reprocessamento emocional</span>
+              </div>
+              <div class="benefit-item">
+                <span class="benefit-check">✓</span>
+                <span class="benefit-text">Autoconhecimento</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="trg-visual-column">
+            <div class="trg-circle-container">
+              <div class="trg-main-circle">
+                <i class="ph-light ph-flower-tulip"></i>
+              </div>
+              <div class="trg-floating-icon heart-icon">
+                <i class="ph-light ph-heart"></i>
+              </div>
+              <div class="trg-floating-icon star-icon">
+                <i class="ph-light ph-sparkle"></i>
+              </div>
+              <div class="trg-floating-icon leaf-icon">
+                <i class="ph-light ph-leaf"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <CtaSection
+      title="Pronto para começar?"
+      subtitle="Dar o primeiro passo já é parte do processo. Estou aqui para receber."
+      href="https://wa.me/5555997039336"
+      buttonLabel="Falar no WhatsApp"
+    />
+  </main>
+</BaseLayout>
+
+<style>
+  /* ===== Como acontece o acompanhamento (timeline) ===== */
+  .journey-section {
+    padding: 4rem 2rem;
+    background-color: #f9f9f9;
+  }
+
+  .journey-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .journey-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background-color: rgba(20, 161, 166, 0.15);
+    color: #14a1a6;
+    padding: 0.6rem 1.2rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-bottom: 1.5rem;
+  }
+
+  .journey-badge i {
+    width: 18px;
+    height: 18px;
+  }
+
+  .journey-title {
+    font-size: 2.5rem;
+    color: #0d7377;
+    margin-bottom: 1rem;
+    font-family: 'Lora', serif;
+    font-weight: 700;
+  }
+
+  .journey-subtitle {
+    font-size: 1.05rem;
+    color: #666;
+    line-height: 1.8;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .journey-timeline {
+    position: relative;
+    padding: 2rem 0;
+  }
+
+  .timeline-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+    position: relative;
+  }
+
+  /* Linha horizontal conectando os ícones (apenas desktop) */
+  @media (min-width: 768px) {
+    .timeline-container::before {
+      content: '';
+      position: absolute;
+      top: 50px;
+      left: 5%;
+      right: 5%;
+      height: 2px;
+      background-color: rgba(20, 161, 166, 0.3);
+      z-index: 0;
+    }
+  }
+
+  .timeline-step {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding-top: 0;
+  }
+
+  .step-icon-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* .step-icon: versão dedicada da timeline (círculo branco + borda teal) —
+     colisão com o Agendamento do index resolvida pelo escopo (ver ADR 0001). */
+  .step-icon {
+    width: 100px;
+    height: 100px;
+    box-sizing: border-box;
+    border: 3px solid #14a1a6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    border-radius: 50%;
+    background: white;
+  }
+
+  .step-icon i {
+    font-size: 3rem;
+    color: #14a1a6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+  }
+
+  .step-label {
+    display: block;
+    font-size: 0.75rem;
+    color: #14a1a6;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    margin-bottom: 0.8rem;
+    text-transform: uppercase;
+  }
+
+  .step-title {
+    font-size: 1.4rem;
+    color: #0d7377;
+    font-family: 'Lora', serif;
+    font-weight: 700;
+    margin-bottom: 0.8rem;
+  }
+
+  .step-description {
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* ===== O que é a TRG? ===== */
+  .trg-section {
+    padding: 4rem 2rem;
+    background-color: white;
+  }
+
+  .trg-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .trg-label {
+    display: block;
+    font-size: 0.8rem;
+    color: #14a1a6;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
+  }
+
+  .trg-title {
+    font-size: 2.8rem;
+    color: #0d7377;
+    font-family: 'Lora', serif;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+  }
+
+  .trg-description {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+  }
+
+  .trg-benefits-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .benefit-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1rem;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    border: 1px solid #e8e8e8;
+  }
+
+  .benefit-check {
+    color: #14a1a6;
+    font-weight: 700;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+  }
+
+  .benefit-text {
+    font-size: 0.95rem;
+    color: #333;
+    font-weight: 600;
+  }
+
+  .trg-visual-column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .trg-circle-container {
+    position: relative;
+    width: 360px;
+    height: 360px;
+  }
+
+  .trg-main-circle {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    color: #14a1a6;
+  }
+
+  .trg-main-circle i {
+    font-size: 10rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+  }
+
+  .trg-floating-icon {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #14a1a6;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border: 3px solid white;
+  }
+
+  .trg-floating-icon i {
+    font-size: 2.2rem;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .heart-icon {
+    top: -20px;
+    right: 20px;
+  }
+
+  .star-icon {
+    bottom: 30px;
+    left: -15px;
+  }
+
+  .leaf-icon {
+    bottom: 40px;
+    right: -10px;
+  }
+
+  /* ===== Responsivo — timeline e TRG ===== */
+  @media (max-width: 1024px) {
+    .trg-circle-container {
+      width: 280px;
+      height: 280px;
+    }
+
+    .trg-main-circle {
+      font-size: 3rem;
+    }
+
+    .trg-floating-icon {
+      width: 60px;
+      height: 60px;
+      font-size: 1.5rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .journey-section {
+      padding: 3rem 1rem;
+    }
+
+    .journey-title {
+      font-size: 1.8rem;
+    }
+
+    .journey-subtitle {
+      font-size: 0.95rem;
+    }
+
+    .step-icon {
+      width: 80px;
+      height: 80px;
+      font-size: 2rem;
+    }
+
+    .step-icon i {
+      width: 40px;
+      height: 40px;
+    }
+
+    .step-title {
+      font-size: 1.2rem;
+    }
+
+    .step-description {
+      font-size: 0.9rem;
+    }
+
+    .trg-section {
+      padding: 3rem 1rem;
+    }
+
+    .trg-content {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+
+    .trg-visual-column {
+      order: 1;
+    }
+
+    .trg-text-column {
+      order: 2;
+    }
+
+    .trg-title {
+      font-size: 2rem;
+    }
+
+    .trg-circle-container {
+      width: 320px;
+      height: 320px;
+      margin: 0 auto;
+    }
+
+    .trg-floating-icon {
+      width: 55px;
+      height: 55px;
+      font-size: 1.3rem;
+    }
+
+    .heart-icon {
+      top: -15px;
+      right: 15px;
+    }
+
+    .star-icon {
+      bottom: 25px;
+      left: -10px;
+    }
+
+    .leaf-icon {
+      bottom: 35px;
+      right: -8px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .journey-section {
+      padding: 2rem 1rem;
+    }
+
+    .journey-title {
+      font-size: 1.5rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .journey-badge {
+      font-size: 0.75rem;
+      padding: 0.5rem 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .timeline-container {
+      gap: 1.5rem;
+    }
+
+    .step-icon {
+      width: 70px;
+      height: 70px;
+      font-size: 1.8rem;
+    }
+
+    .step-icon i {
+      width: 35px;
+      height: 35px;
+    }
+
+    .step-label {
+      font-size: 0.7rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .step-title {
+      font-size: 1rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .step-description {
+      font-size: 0.85rem;
+    }
+
+    .trg-section {
+      padding: 2rem 1rem;
+    }
+
+    .trg-label {
+      font-size: 0.7rem;
+    }
+
+    .trg-title {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .trg-description {
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+
+    .trg-benefits-grid {
+      grid-template-columns: 1fr;
+      gap: 0.8rem;
+      margin-top: 1.5rem;
+    }
+
+    .benefit-item {
+      padding: 0.8rem;
+    }
+
+    .benefit-text {
+      font-size: 0.85rem;
+    }
+
+    .trg-circle-container {
+      width: 240px;
+      height: 240px;
+    }
+
+    .trg-main-circle {
+      font-size: 2rem;
+    }
+
+    .trg-main-circle i {
+      width: 50px;
+      height: 50px;
+    }
+
+    .trg-floating-icon {
+      width: 45px;
+      height: 45px;
+      font-size: 1.1rem;
+    }
+
+    .trg-floating-icon i {
+      width: 24px;
+      height: 24px;
+    }
+
+    .heart-icon {
+      top: -12px;
+      right: 10px;
+    }
+
+    .star-icon {
+      bottom: 20px;
+      left: -8px;
+    }
+
+    .leaf-icon {
+      bottom: 28px;
+      right: -5px;
+    }
+  }
+</style>

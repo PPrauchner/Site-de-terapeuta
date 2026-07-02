@@ -1,0 +1,94 @@
+/*
+  Reset e estilos base globais — aplicados a todas as páginas via BaseLayout.
+  Estilos específicos de seção/componente ficam escopados nos respectivos
+  .astro (ver docs/adr/0001). Aqui moram só reset, base e utilitários
+  realmente compartilhados entre páginas.
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-sans);
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-serif);
+  color: var(--color-primary-dark);
+  margin-bottom: 1rem;
+}
+
+main {
+  flex: 1;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Wrapper genérico de seção das páginas secundárias */
+.page-section {
+  padding: 3rem 2rem;
+  background-color: var(--color-white);
+}
+
+.page-section__container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.page-section__footer-note {
+  text-align: center;
+  padding: 2rem;
+  background-color: var(--color-bg);
+  font-size: 0.9rem;
+  color: var(--color-text-faint);
+}
+
+/* Grid dos cards informativos (páginas secundárias) */
+.info-cards-container {
+  display: grid;
+  gap: 2rem;
+  margin: 0;
+}
+
+.info-cards-container--2cols {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.info-cards-container--2cols-fixed {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* ===== Responsivo compartilhado ===== */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+
+  .page-section {
+    padding: 2rem 1rem;
+  }
+
+  .info-cards-container--2cols,
+  .info-cards-container--2cols-fixed {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .info-cards-container--2cols-fixed {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,69 @@
+# CI/CD — build estático do Astro + deploy no Hostinger via FTPS.
+#
+# Gate de qualidade (astro check + lint) roda ANTES do build; se qualquer um
+# falhar, o deploy é bloqueado (ver docs/adr/0001-migracao-astro-php-hostinger.md).
+#
+# Secrets necessários (GitHub → Settings → Secrets and variables → Actions):
+#   FTP_SERVER    host FTP do Hostinger (hPanel → Files → FTP Accounts)
+#   FTP_USERNAME  usuário FTP
+#   FTP_PASSWORD  senha FTP
+#
+# Ajuste `server-dir` para o diretório público do seu plano (no Hostinger
+# normalmente `public_html/`).
+
+name: CI/CD — Deploy Hostinger
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      # ---- Gate de qualidade (bloqueia o deploy se falhar) ----
+      - name: Type-check (astro check)
+        run: pnpm check
+
+      - name: Lint (eslint)
+        run: pnpm lint
+
+      # ---- Build ----
+      - name: Build (gera dist/)
+        run: pnpm build
+
+      # ---- Deploy (somente em push na main; PRs param no gate/build) ----
+      - name: Deploy via FTPS
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          local-dir: ./dist/
+          server-dir: ./public_html/
+          # Primeiro deploy: zera public_html/ antes de subir, para uma troca limpa
+          # do site estático antigo (remove arquivos órfãos).
+          # ⚠️ REMOVA esta linha após o primeiro deploy bem-sucedido — do contrário
+          # todo deploy futuro apagará TUDO em public_html/ antes de subir (incluindo
+          # o backend PHP quando ele existir).
+          dangerous-clean-slate: true

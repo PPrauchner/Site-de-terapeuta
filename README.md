@@ -1,299 +1,332 @@
-# Documentação do Projeto - Site Maria Dinoir
+# Site Maria Dinoir - Terapeuta
 
-**Última atualização**: 15 de março de 2026
+> Plataforma digital profissional para apresentação de serviços terapêuticos especializados em Terapia de Reprocesso Generativo (TRG).
 
-## 📋 Estrutura do Projeto
-
-### Arquivos HTML
-1. **index.html** - Página principal do site
-2. **login.html** - Página de login para pacientes
-3. **cadastro.html** - Página de criação de nova conta
-4. **recuperacao-senha.html** - Página para recuperação de senha
-5. **agendar-consulta.html** - Página para agendamento de consultas
-6. **area-paciente.html** - Área privada do paciente (após login)
-
-### Recursos
-- **style.css** - Folha de estilos principal
-- **assets/** - Pasta com imagens (logo, ícones, fotos)
+**Última atualização**: Maio de 2026
 
 ---
 
-## 🎯 Padronizações Aplicadas
+## 📋 Visão Geral
 
-### 1. Estrutura HTML
-**Todos os arquivos seguem este padrão:**
-```html
-<!DOCTYPE html>
-<html lang="pt-BR">
-    <head>
-        <!-- Meta tags, título, estilos -->
-    </head>
-    <body class="[page-class]">
-        <!-- Cabeçalho com logo, navegação e botões -->
-        <header>
-            <img src="./assets/logo.png" alt="Logo Maria Dinoir">
-            <nav><!-- Links para navegação --></nav>
-            <button><!-- Botões de ação --></button>
-        </header>
+Site responsivo desenvolvido em **HTML5** e **CSS3** com design moderno e intuitivo, apresentando os serviços de terapia emocional da profissional Maria Dinoir. A plataforma oferece informações completas sobre a prática terapêutica, áreas de atendimento, processo terapêutico e contato direto via WhatsApp.
 
-        <!-- Conteúdo principal da página -->
-        <main>
-            <!-- Seções e componentes --></main>
+**Tecnologias Utilizadas:**
+- HTML5 semântico
+- CSS3 com Flexbox e Grid
+- Responsive Design (Mobile-First)
+- Bootstrap Icons (CDN v1.11.3)
+- Google Fonts (Lora + Poppins)
 
-        <!-- Rodapé com informações de contato e links -->
-        <footer class="footer"><!-- Informações do rodapé --></footer>
-    </body>
-</html>
+---
+
+## 📁 Estrutura do Projeto
+
 ```
-
-### 2. Meta Tags Padrão
-Todos os arquivos incluem:
-- `<meta charset="UTF-8">`
-- `<meta name="viewport" content="width=device-width, initial-scale=1.0">`
-- `<meta name="description">`
-- `<meta name="keywords">` (quando aplicável)
-
-### 3. Nomenclatura
-- ✅ **Terapeuta**: "Maria Dinoir" (consistente em todos os arquivos)
-- ✅ **Idioma**: Português (pt-BR)
-- ✅ **Nomes de classes CSS**: kebab-case (ex: `.patient-area`, `.login-form`)
-- ✅ **IDs**: kebab-case (ex: `id="areas-atendimento"`)
-
-### 4. Navegação
-**Página Principal (index.html):**
-- Logo da marca
-- Menu de navegação: Início, Sobre, Áreas de Atendimento, Como Funciona, Relatos
-- Botão "Entrar" (redireciona para login.html)
-- Botão "Agendar Consulta" (redireciona para agendar-consulta.html)
-
-**Página de Login (login.html):**
-- Mantém a mesma navegação
-- Botão "Entrar" → login.html
-- Botão "Agendar Consulta" → agendar-consulta.html (sem autenticação)
-
-**Página de Cadastro (cadastro.html):**
-- Mantém a mesma navegação
-- Botões de ação redirecionam corretamente
-
-**Página de Recuperação de Senha (recuperacao-senha.html):**
-- Mantém a mesma navegação
-- Botões de ação redirecionam corretamente
-
-**Página de Agendamento (agendar-consulta.html):**
-- Menu de navegação completo
-- Botão "Entrar" (redireciona para login.html)
-- Botão "Criar Conta" (redireciona para cadastro.html)
-- Botão "Confirmar Agendamento" → area-paciente.html (após selecionar horário)
-Botão "Entrar" → login.html
-├── Botão "Agendar Consulta" → agendar-consulta.html
+Site-de-terapeuta/
+├── index.html                          # Página principal
+├── README.md                           # Este arquivo
+├── .git/                               # Controle de versão
+├── .gitignore                          # Exclusões Git
 │
-├── login.html (Página de Login)
-│   ├── Botão "Agendar Consulta" → agendar-consulta.html
-│   ├── Link "Esqueci minha senha" → recuperacao-senha.html
-│   ├── Link "Criar Nova Conta" → cadastro.html
-│   └── Após autenticação → area-paciente.html
+├── assets/
+│   ├── css/
+│   │   └── style.css                   # Folha de estilos organizada em 9 seções
+│   ├── img/                            # Imagens e logo
+│   └── js/
+│       ├── modal.js                    # Gerenciamento de modais
+│       └── faq_options.js              # Interatividade FAQ
 │
-├── cadastro.html (Nova Conta)
-│   ├── Botão "Agendar Consulta" → agendar-consulta.html
-│   └── Link "Fazer Login" → login.html
-│
-├── recuperacao-senha.html (Recuperação de Senha)
-│   ├── Botão "Agendar Consulta" → agendar-consulta.html
-│   └── Link "Criar Conta" → cadastro.html
-│
-├── agendar-consulta.html (Agendamento)
-│   ├── Botão "Entrar" → login.html
-│   ├── Botão "Criar Conta" → cadastro.html
-│   ├── Link "← Voltar para Home" → index.html
-│   └── Botão "Confirmar Agendamento" → area-paciente.html
-│
-└── area-paciente.html (Área do Paciente)
-    ├── Menu com links para index.html
-    ├── Botão "Sair" → login.html
-    └── Botão "Agendar Consulta" → agendar-consulta
-**Todas as páginas incluem footer.html com:**
-- Coluna 1: Informações sobre Maria Dinoir
-- Coluna 2: Contatos (email e telefone)
-- Coluna 3: Links úteis (Política de Privacidade, Termos de Uso, etc)
-- Seção inferior: - Criar Conta**: 
-   - index.html → login.html → cadastro.html (criar conta)
-   
-2. **Usuário existente - Fazer Login**:
-   - index.html → login.html (fazer login) → area-paciente.html
-   
-3. **Recuperação de Senha**:
-   - login.html → recuperacao-senha.html → email com link
-
-4. **Agendar Consulta**:
-   - Usuário não autenticado: index.html → agendar-consulta.html → login.html
-   - Usuário autenticado: area-paciente.html → agendar-consulta.html → area-paciente.html
-├── Cadastro.html (Nova Conta)
-│   └── Fazer Login → login.html
-├── Recuperação de Senha
-│   └── Criar Conta → cadastro.html
-└── Login (após autenticação) → area-paciente.html
+└── pages/
+    └── footer_pages/
+        ├── privacidade.html            # Política de Privacidade
+        ├── como-funciona.html          # Como Funciona o Tratamento
+        └── faq.html                    # Perguntas Frequentes
 ```
 
 ---
 
-## 🔐 Fluxo de Autenticação
+## � Páginas do Site
 
-1. **Usuário novo**: 
-   - index.html → login.html → cadastro.html (criar conta)
-   
-2. **Usuário existente**:
-   - index.html → login.html (fazer login) → area-paciente.html
-   
-3. **Recuperação de Senha**:
-   - login.html → recuperacao-senha.html (enviar email)
+### 1. **index.html** - Página Principal
+A página de entrada do site com as seções:
 
----
+- **Header** - Logo, navegação principal e botão de agendamento
+- **Hero Section** - Apresentação da profissional Maria Dinoir
+- **Sobre a Profissional** - Biografia e experiência (3+ anos)
+- **Áreas de Atendimento** - Especializações e tipos de tratamento
+- **Como Funciona** - 6 cards explicativos do processo terapêutico
+- **Relatos de Pacientes** - Depoimentos e feedback
+- **Footer** - Informações de contato, links úteis e modais informativos
 
-## 📝 Comentários HTML
+### 2. **pages/footer_pages/privacidade.html** - Política de Privacidade
+Página informativa sobre tratamento de dados e privacidade com:
+- Hero section padronizado
+- 4 cards informativos com ícones
+- Layout em 2 colunas fixas
+- Link de atualização
 
-Todos os arquivos possuem comentários em português explicando:
-- Sections principais
-- Grupos de elementos
-- Componentes importantes
-- Scripts especiais
+### 3. **pages/footer_pages/como-funciona.html** - Como Funciona
+Página detalhada sobre o processo terapêutico com:
+- Hero section padronizado
+- 6 cards explicativos em grid responsivo
+- Seção CTA (Call-to-Action) com botão WhatsApp
+- Links para agendamento
 
-Exemplo:
-```html
-<!-- Cabeçalho com logo e navegação -->
-<header>
-    <!-- Logo da marca -->
-    <img src="./assets/logo.png" alt="Logo">
-    
-    <!-- Menu de navegação principal -->
-    <nav><!-- ... --></nav>
-</header>
-```
-
----
-
-## 🎨 Convenções de Style
-
-### Classes CSS
-- **Componentes**: `.card`, `.button`, `.form-group`, `.stat-card`
-- **Layouts**: `.container`, `.section-header`, `.stats-container`
-- **Estados**: `.active`, `.primary`, `.disabled`
-- **Páginas**: `.login-page`, `.signup-page`, `.patient-area-page`
-
-### IDs
-- **Seções**: `id="inicio"`, `id="sobre"`, `id="areas-atendimento"`
-- **Elementos únicos**: `id="loginForm"`, `id="signupForm"`
+### 4. **pages/footer_pages/faq.html** - Perguntas Frequentes
+Página interativa com accordion de FAQ contendo:
+- Hero section padronizado
+- 5 perguntas e respostas em expandable details
+- Seção de dúvidas adicionais com link WhatsApp
+- Estilo consistente com outras páginas
 
 ---
 
-## 🔧 Correções Aplicadas (Março 2026)
+## 🎨 Design System
 
-### Problema Identificado: Ícones SVG Oversized
-Os ícones SVG dentro dos campos de entrada (inputs) em **login.html**, **cadastro.html** e **recuperacao-senha.html** estavam aparecendo com tamanho exagerado (19px em vez de 14px) e com cor não adequada.
+### Paleta de Cores
+| Cor | Hex | Uso |
+|-----|-----|-----|
+| Teal Primário | `#14a1a6` | Links, buttons, accents |
+| Teal Escuro | `#0d7377` | Títulos, heading |
+| Teal Claro | `#187F7D` | Hover states, borders |
+| Dark Navy | `#111620` | Footer background |
+| Off-white | `#f9f9f9` | Background geral |
+| White | `#ffffff` | Cards, content areas |
 
-**Causa:** Conflito de definições CSS para `.input-icon` resultando em:
-1. Múltiplas definições conflitantes de `.input-icon` no style.css
-2. Aplicação incorreta de dimensões aos elementos SVG
-3. Seletores CSS não-específicos (`.input-icon svg`) que não correspondiam à estrutura HTML real
+### Tipografia
+- **Headings** (H1, H2, H3): `Lora` (serif) - elegante e profissional
+- **Body Text**: `Poppins` (sans-serif) - legibilidade e modernidade
 
-### Solução Implementada
-
-#### Correções no CSS (style.css):
-
-**1. Consolidação de definições `.input-icon`:**
-- Removidas definições duplicadas e conflitantes
-- Unificada definição única para `.input-icon` com todas as propriedades necessárias
-
-**2. Dimensionamento correto:**
-| Breakpoint | Viewport | Tamanho |
-|-----------|----------|---------|
-| Desktop | > 768px | 0.875rem (~14px) |
-| Tablet | ≤ 768px | 0.7rem (~11px) |
-| Mobile | ≤ 480px | 0.6rem (~10px) |
-
-**3. Propriedades CSS aplicadas:**
+### Breakpoints Responsivos
 ```css
-.input-icon {
-    width: 0.875rem;          /* Desktop: 14px */
-    height: 0.875rem;         /* Desktop: 14px */
-    stroke: #14a1a6;          /* Cor teal primária */
-    color: #14a1a6;           /* Cor teal primária */
-    stroke-width: 1.5;        /* Espessura do traço */
-    min-width: 12px;          /* Mínimo para readabilidade */
-    margin-right: 0.8rem;     /* Espaçamento do input */
-    flex-shrink: 0;           /* Evita compressão */
-    display: flex;            /* Layout flexível */
-    align-items: center;      /* Centralização vertical */
-    justify-content: center;  /* Centralização horizontal */
-}
+Desktop:   > 1200px
+Tablet:    768px - 1199px
+Mobile:    < 768px
+Extra Small: < 480px
 ```
 
-**4. Media Queries habilitadas:**
-- Tablet (768px): Ícones reduzidos para 0.7rem mantendo proporção
-- Mobile (480px): Ícones compactados para 0.6rem otimizado para telas pequenas
+---
 
-#### Arquivos HTML - Estrutura Preservada:
-Os arquivos HTML mantiveram a estrutura original:
-```html
-<div class="input-field">
-    <svg class="input-icon" viewBox="0 0 24 24" ...>
-        <!-- Paths SVG -->
-    </svg>
-    <input type="email" placeholder="...">
-</div>
+## 🏗️ Organização do CSS (9 Seções Lógicas)
+
+O arquivo `style.css` está organizado em 9 seções bem-definidas:
+
+1. **RESET E ESTILOS GLOBAIS** - Reset CSS, tipografia, variáveis
+2. **HEADER** - Navegação, logo, botões (sticky)
+3. **FOOTER** - Rodapé dark, contact info, modais
+4. **PÁGINA PRINCIPAL** - Estilos para index.html (Hero, About, Services, Process, Testimonials)
+5. **PÁGINAS SECUNDÁRIAS** - Componentes reutilizáveis:
+   - `.page-hero` - Seção hero padronizada
+   - `.page-section` - Content wrapper
+   - `.info-cards-container` - Grid de cards
+   - `.info-card` - Card individual com ícone
+   - `.cta-section` - Call-to-action section
+   - `.btn-voltar` - Botão de voltar
+6. **MODAIS** - Estilos e animações de modal
+7. **SEÇÃO FAQ** - Accordion details/summary
+8. **RESPONSIVE DESIGN** - Media queries (768px, 480px)
+9. **ANIMAÇÕES** - Keyframes e transitions
+
+### Classes Principais (BEM Methodology)
+
+**Page Hero:**
+```css
+.page-hero                    /* Container principal */
+.page-hero__container         /* Wrapper interno */
+.page-hero__header-inline     /* Header com back button */
+.page-hero__title             /* Título da página */
+.page-hero__subtitle          /* Subtítulo/descrição */
 ```
 
-**Páginas afetadas:**
-- ✅ login.html (2 ícones: email, senha)
-- ✅ cadastro.html (5 ícones: nome, email, telefone, data, senha x2)
-- ✅ recuperacao-senha.html (1 ícone: email)
+**Info Cards:**
+```css
+.info-cards-container         /* Grid container */
+.info-cards-container--2cols  /* Auto-fit responsivo */
+.info-cards-container--2cols-fixed  /* 2 colunas fixas */
+.info-card                    /* Card individual */
+.info-card__icon              /* Ícone do card */
+.info-card__title             /* Título do card */
+.info-card__content           /* Conteúdo do card */
+```
 
-### Resultado Esperado
-
-✅ **Ícones agora aparecem com tamanho correto** (14px em desktop)
-✅ **Cor teal (#14a1a6) renderizada corretamente** em todos os tamanhos
-✅ **Responsividade mantida** com scaling proporcional para tablet/mobile
-✅ **Alinhamento visual** preservado com campos de entrada
-✅ **Sem conflitos CSS** com definições unificadas e limpas
+**CTA Section:**
+```css
+.cta-section                  /* Container */
+.cta-section__container       /* Wrapper */
+.cta-section__title           /* Título */
+.cta-section__subtitle        /* Subtítulo */
+.cta-section__button          /* Botão CTA */
+```
 
 ---
 
 ## 📱 Responsividade
 
-Todos os arquivos incluem:
-```html
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-```
+Todas as páginas implementam **Mobile-First Design** com media queries:
 
-CSS responsivo deve ser implementado em `style.css` para:
-- Desktop (1024px+)
-- Tablet (768px - 1023px)
-- Mobile (até 767px)
+- **Desktop (1200px+)**: Layout completo, navegação horizontal
+- **Tablet (768px-1199px)**: Grid ajustado, fonte reduzida
+- **Mobile (<768px)**: Single column, stack vertical
+- **Extra Small (<480px)**: Compactado, header responsivo
 
 ---
 
-## ✅ Checklist de Conformidade
+## 🔗 Navegação
 
-- [x] Todos os arquivos em português
-- [x] Meta tags consistentes
-- [x] Estrutura HTML semântica
-- [x] Header, main, footer em todas as páginas
-- [x] Navegação consistente
-- [x] Footer padronizado
-- [x] Títulos informativos
-- [x] Comentários HTML explicativos
-- [x] Links funcionais dentro da navegação
-- [x] Botões com ações definidas
-- [x] Responsividade (viewport meta tag)
+### Header (Todas as Páginas)
+- Logo clicável → `index.html`
+- Menu principal (Início, Sobre, Áreas, Como Funciona, Relatos)
+- Botão "Agendar Consulta" → WhatsApp
 
----
+### Footer (Todas as Páginas)
+Rodapé dark com 3 colunas:
+1. **Sobre** - Breve apresentação
+2. **Contato** - Email, telefone, WhatsApp
+3. **Links** - Privacidade, FAQ, Como Funciona
 
-## 🔗 Links Importantes
-
-- **Email**: Maria@Terapeuta.com.br
-- **Telefone**: (55) 9703-9336
-- **WhatsApp**: (55) 9703-9336
-- **Profissional**: Maria Dinoir – Terapeuta
+### Páginas Secundárias
+- Back button (`←`) para voltar
+- Navegação consistente
+- Links para outras seções
 
 ---
 
-**Última atualização**: 12 de março de 2026 (Adição página agendar-consulta.html e atualização de rotas de navegação)
+## 📊 Componentes Reutilizáveis
+
+### `.page-hero`
+Hero section com gradient teal para todas as páginas secundárias
+- Padding: 2rem (otimizado para compactação)
+- Background: Linear gradient
+- Contém back button e título
+
+### `.page-section`
+Wrapper de conteúdo principal com fundo off-white
+- Padding: 3rem 2rem
+- Max-width: 1200px
+- Centralização automática
+
+### `.info-card`
+Card individual com ícone, título e conteúdo
+- Fundo branco, sombra suave
+- Hover: elevação e sombra aumentada
+- Ícone com fundo teal 10%
+
+### `.cta-section`
+Seção de chamada para ação com botão
+- Fundo branco
+- Padding: 3rem 2rem
+- Botão teal com hover animado
+
+---
+
+## 🔧 JavaScript
+
+### modal.js
+Gerencia abertura/fechamento de modais:
+- Modal de "Serviços Online"
+- Modal de "Política de Cancelamento"
+- Overlay com opacity
+- Animação fade-in
+
+### faq_options.js
+Interatividade para accordion FAQ:
+- Toggle expand/collapse
+- Ícone rotativo de seta
+- Animação suave
+
+---
+
+## ✅ Características Implementadas
+
+- [x] Design responsivo (mobile-first)
+- [x] Navegação intuitiva
+- [x] Hero section com imagem
+- [x] Componentes reutilizáveis
+- [x] Modais funcionais
+- [x] FAQ interativa (accordion)
+- [x] Integração WhatsApp
+- [x] Página de Privacidade
+- [x] Página Como Funciona
+- [x] Footer profissional
+- [x] SEO meta tags
+- [x] Acessibilidade (alt text, semantic HTML)
+- [x] Performance otimizada
+
+---
+
+## 🚀 Como Usar
+
+1. **Clonar repositório:**
+   ```bash
+   git clone [seu-repo-url]
+   cd Site-de-terapeuta
+   ```
+
+2. **Abrir no navegador:**
+   - Abra `index.html` direto no navegador
+   - Ou use um servidor local: `python -m http.server 8000`
+
+3. **Estrutura pronta para deploy:**
+   - Compatível com qualquer hosting (GitHub Pages, Netlify, Vercel)
+   - Sem dependências externas (apenas CDNs)
+   - Buildtime: 0 (HTML/CSS puro)
+
+---
+
+## 📧 Contato & Links
+
+- **Email:** maria@terapeuta.com.br
+- **WhatsApp:** (55) 9703-9336
+- **Especialidade:** Terapia de Reprocesso Generativo (TRG)
+- **Localização:** Alegrete, RS
+
+---
+
+## 📄 Licença & Créditos
+
+**Desenvolvido por:** Pietro Mendes com Maria Dinoir
+
+**Design:**
+- Logo: [Autor]
+- Imagens: [Fonte]
+- Icons: Bootstrap Icons (v1.11.3)
+- Fonts: Google Fonts
+
+---
+
+## 📝 Notas de Desenvolvimento
+
+### Últimas Atualizações (Maio 2026)
+
+✅ **CSS Reorganizado em 9 Seções**
+- Melhor manutenção e escalabilidade
+- Comentários detalhados para cada seção
+- Separação de concerns clara
+
+✅ **Páginas Secundárias Padronizadas**
+- Pattern reusável `.page-hero` + `.page-section`
+- Componentes `.info-card` consistentes
+- Layout responsivo com grid
+
+✅ **Otimizações de Espaço**
+- Padding reduzido em 25% (containers mais compactos)
+- Footer otimizado (altura reduzida)
+- Design mais limpo e eficiente
+
+✅ **Componentes de Grid**
+- `.info-cards-container--2cols` (auto-fit responsivo)
+- `.info-cards-container--2cols-fixed` (exatamente 2 colunas)
+
+### Próximas Melhorias Potenciais
+
+- [ ] Integração com agenda online
+- [ ] Sistema de agendamento automático
+- [ ] Blog/artigos sobre terapia
+- [ ] Chatbot de atendimento
+- [ ] Análise de visitantes (Google Analytics)
+
+---
+
+**Versão:** 2.0  
+**Status:** Production Ready  
+**Último update:** 15 de Maio de 2026

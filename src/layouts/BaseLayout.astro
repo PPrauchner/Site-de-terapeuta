@@ -1,0 +1,59 @@
+---
+import '../styles/tokens.css';
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  analytics?: boolean; // gtag — usado apenas na página inicial
+}
+
+const {
+  title,
+  description = 'Terapeuta especializada em Terapia de Reprocesso Generativo. Tratamento para ansiedade, depressão, traumas e desenvolvimento pessoal.',
+  analytics = false,
+} = Astro.props;
+
+const keywords =
+  'Terapia Reprocesso Generativo, TRG, Terapia Emocional, Psicóloga, Maria Dinoir, Terapeuta, Alegrete, RS, Saúde Mental, Ansiedade, Depressão, Traumas, Autoestima, Atendimento Online, Atendimento Presencial, Psicoterapia, Desenvolvimento Pessoal, Autoconhecimento, Terapia para Adolescentes, Terapia para Adultos, Terapia para Idosos';
+
+// Google Analytics (gtag) — injetado como string via set:html para preservar
+// o snippet oficial (usa `arguments`) sem passar pelo lint/format.
+const gtagId = 'G-LWHRV0NNYP';
+const gtagInit = `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${gtagId}');`;
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Pietro Mendes e Maria Dinoir" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <slot name="head" />
+    {
+      analytics && (
+        <Fragment>
+          <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${gtagId}`} />
+          <script is:inline set:html={gtagInit} />
+        </Fragment>
+      )
+    }
+  </head>
+  <body>
+    <Header />
+    <slot />
+    <Footer />
+  </body>
+</html>

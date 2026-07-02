@@ -1,0 +1,49 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import FaqAccordion, { type FaqEntry } from '../components/FaqAccordion.astro';
+
+const faqs: FaqEntry[] = [
+  {
+    question: 'Preciso ter um problema grave para fazer terapia?',
+    answer:
+      'Não. A terapia é um espaço de cuidado para qualquer pessoa que queira se conhecer melhor, lidar com momentos difíceis ou simplesmente ter um lugar seguro para falar sobre si. Você não precisa estar "mal" para buscar ajuda.',
+  },
+  {
+    question: 'Quanto tempo dura uma sessão?',
+    answer:
+      'As sessões de TRG têm duração média de 50 a 60 minutos, dependendo da necessidade do reprocessamento naquele dia.',
+  },
+  {
+    question: 'Terapia online funciona?',
+    answer:
+      'Sim! O atendimento online tem a mesma eficácia que o presencial, com a vantagem do conforto de estar na sua própria casa, desde que você tenha um local reservado e com privacidade.',
+  },
+  {
+    question: 'Com que frequência acontecem as sessões?',
+    answer:
+      'Geralmente, as sessões ocorrem uma vez por semana. Conforme o tratamento avança, podemos combinar sessões quinzenais para manutenção.',
+  },
+  {
+    question: 'Tudo que eu falar fica em sigilo?',
+    answer:
+      'Sim, o sigilo profissional é garantido pelo código de ética. Tudo o que é compartilhado em sessão é estritamente confidencial.',
+  },
+];
+---
+
+<BaseLayout title="Maria Dinoir - FAQ">
+  <main>
+    <PageHero
+      id="faq"
+      title="Perguntas Frequentes"
+      subtitle="Reuni aqui algumas dúvidas comuns sobre como funciona o processo terapêutico. Se a sua pergunta não estiver na lista, fique à vontade para me chamar."
+    />
+
+    <section class="page-section">
+      <div class="page-section__container">
+        <FaqAccordion items={faqs} />
+      </div>
+    </section>
+  </main>
+</BaseLayout>

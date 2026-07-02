@@ -1,0 +1,83 @@
+---
+interface Props {
+  icon: string; // classe do bootstrap-icon, ex.: "bi-heart"
+  title: string;
+}
+
+const { icon, title } = Astro.props;
+---
+
+<div class="info-card">
+  <div class="info-card__icon">
+    <i class={`bi ${icon}`}></i>
+  </div>
+  <h3 class="info-card__title">{title}</h3>
+  <p class="info-card__content"><slot /></p>
+</div>
+
+<style>
+  .info-card {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s ease;
+  }
+
+  .info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+  }
+
+  .info-card__icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(20, 161, 166, 0.1);
+    border-radius: 50%;
+    font-size: 2.5rem;
+    color: var(--color-primary);
+  }
+
+  .info-card__title {
+    font-size: 1.2rem;
+    color: var(--color-primary-dark);
+    margin-bottom: 1rem;
+    font-family: var(--font-serif);
+  }
+
+  .info-card__content {
+    font-size: 0.95rem;
+    color: var(--color-text-soft);
+    line-height: 1.6;
+  }
+
+  /* Links dentro do conteúdo vêm via <slot> (escopo do pai) — usar :global */
+  .info-card__content :global(a) {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+  }
+
+  .info-card__content :global(a:hover) {
+    color: var(--color-primary-dark);
+    text-decoration: underline;
+  }
+
+  @media (max-width: 480px) {
+    .info-card {
+      padding: 1.5rem;
+    }
+
+    .info-card__icon {
+      width: 60px;
+      height: 60px;
+      font-size: 1.8rem;
+    }
+  }
+</style>
