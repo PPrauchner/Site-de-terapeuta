@@ -72,3 +72,23 @@ Detalhes da migração:
   para o pipeline de deploy funcionar.
 - O GitHub Actions não vem com pnpm pré-instalado (ao contrário do npm) — o workflow
   precisa de um passo extra pra habilitá-lo (`pnpm/action-setup` ou `corepack enable`).
+
+## Notas de execução (branch `astro-migration`)
+
+Decisões tomadas durante a execução, não previstas na análise original:
+
+- **Escopo de CSS por componente com correção de colisões.** No `style.css` único, a
+  classe `.step-icon` era definida duas vezes (seção *Agendamento* do index, com fundo
+  gradiente; e timeline do *como-funciona*, com fundo branco + borda). Como tudo era
+  global, a segunda regra sobrescrevia a primeira e o index acabava exibindo o estilo
+  branco+borda por acidente de cascata. Ao escopar o CSS por componente/página, cada
+  seção passou a usar sua regra pretendida — o *Agendamento* do index voltou ao
+  **gradiente teal** original. É uma mudança visual consciente em relação ao site
+  anteriormente publicado.
+- **URLs em formato de diretório.** As páginas secundárias, antes aninhadas em
+  `pages/footer_pages/*.html`, passaram para o roteamento padrão do Astro:
+  `/como-funciona/`, `/faq/`, `/privacidade/`. Links internos passaram a ser
+  root-relative, resolvendo de quebra os bugs de caminho relativo do site legado.
+- **`astro:assets` exige `sharp`.** Adicionado como dependência; o `pnpm-workspace.yaml`
+  autoriza os build scripts nativos (`esbuild`, `sharp`) via `allowBuilds` (formato do
+  pnpm 11+, que não lê mais o campo `pnpm` do `package.json`).
