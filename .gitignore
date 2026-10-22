@@ -25,3 +25,4 @@ pnpm-debug.log*
 # projeto legado (site estático pré-Astro)
 style_old.css
 .claude/settings.local.json
+.claude/
